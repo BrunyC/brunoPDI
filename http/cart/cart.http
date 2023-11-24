@@ -1,0 +1,29 @@
+GET http://localhost:8888/cart/90507aad-4b84-4735-94de-6bd2acf2a747
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJydW5vIiwiaWF0IjoxNzAwNjg0NzQyLCJleHAiOjE3MDA2OTU1NDJ9.j3MqPRMKPGb9yvK-SICalVgW4TT0owoUtrUZBgxFTl8
+
+###
+POST http://localhost:8888/cart/addItem/123
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJydW5vIiwiaWF0IjoxNzAwNjg0NzQyLCJleHAiOjE3MDA2OTU1NDJ9.j3MqPRMKPGb9yvK-SICalVgW4TT0owoUtrUZBgxFTl8
+
+{
+    "productId": "1234567890",
+    "name": "produto teste 3",
+    "quantity": 1,
+    "price": 10.00
+}
+
+###
+DELETE http://localhost:8888/cart/deleteItem/90507aad-4b84-4735-94de-6bd2acf2a747
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJydW5vIiwiaWF0IjoxNzAwNjg0NzQyLCJleHAiOjE3MDA2OTU1NDJ9.j3MqPRMKPGb9yvK-SICalVgW4TT0owoUtrUZBgxFTl8
+
+{
+    "productId": "987654321"
+}
+
+###
+DELETE http://localhost:8888/cart/delete/90507aad-4b84-4735-94de-6bd2acf2a747
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJydW5vIiwiaWF0IjoxNzAwNjg0NzQyLCJleHAiOjE3MDA2OTU1NDJ9.j3MqPRMKPGb9yvK-SICalVgW4TT0owoUtrUZBgxFTl8

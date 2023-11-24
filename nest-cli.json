@@ -1,0 +1,48 @@
+{
+	"collection": "@nestjs/schematics",
+	"sourceRoot": "apps/api/src",
+	"monorepo": true,
+	"root": "apps/api",
+	"compilerOptions": {
+		"webpack": true,
+		"tsConfigPath": "apps/api/tsconfig.app.json"
+	},
+	"projects": {
+		"api": {
+			"type": "application",
+			"root": "api",
+			"entryFile": "main",
+			"sourceRoot": "api/src",
+			"compilerOptions": {
+				"tsConfigPath": "api/tsconfig.app.json"
+			}
+		},
+		"user": {
+			"type": "application",
+			"root": "microservices/user",
+			"entryFile": "main",
+			"sourceRoot": "microservices/user/src",
+			"compilerOptions": {
+				"tsConfigPath": "microservices/user/tsconfig.app.json"
+			}
+		},
+		"cart": {
+			"type": "application",
+			"root": "microservices/cart",
+			"entryFile": "main",
+			"sourceRoot": "microservices/cart/src",
+			"compilerOptions": {
+				"tsConfigPath": "microservices/cart/tsconfig.app.json"
+			}
+		},
+		"logs": {
+			"type": "application",
+			"root": "microservices/logs",
+			"entryFile": "main",
+			"sourceRoot": "microservices/logs/src",
+			"compilerOptions": {
+				"tsConfigPath": "microservices/logs/tsconfig.app.json"
+			}
+		}
+	}	
+}

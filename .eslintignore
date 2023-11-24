@@ -1,0 +1,5 @@
+/dist/**
+/coverage/**
+/tools/internal-rules/node_modules/**
+/docker/**
+!.eslintrc.js

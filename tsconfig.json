@@ -1,0 +1,69 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": [
+      "ES2020"
+    ],
+    "target": "ES2020",
+    "strict": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "paths": {
+      "@config/*": [
+        "config/services/*"
+      ],
+      "@lib/dto/api/*": [
+        "lib/src/dto/api/*"
+      ],
+      "@lib/dto/general/*": [
+        "lib/src/dto/general/*"
+      ],
+      "@lib/dto/microservice/cart/*": [
+        "lib/src/dto/microservices/cart/*"
+      ],
+      "@lib/enum/*": [
+        "lib/src/enum/*"
+      ],
+      "@lib/filter/*": [
+        "lib/src/filter/*"
+      ],
+      "@lib/helper/*": [
+        "lib/src/helper/*"
+      ],
+      "@lib/interceptors/*": [
+        "lib/src/interceptors/*"
+      ],
+      "@lib/type/*": [
+        "lib/src/type/*"
+      ],
+      "@lib/validators/*": [
+        "lib/src/validators/*"
+      ],
+      "@api/*": [
+        "api/src/*"
+      ],
+      "@cart/*": [
+        "microservices/cart/src/*"
+      ],
+      "@logs/*": [
+        "microservices/logs/src/*"
+      ],
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
