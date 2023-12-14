@@ -14,7 +14,7 @@
     "stop:services": "cd docker && docker-compose stop && cd ..",
     "stop:service:mongodb": "cd docker && docker stop mongo-3.6.18 && cd ..",
     "stop:service:rabbitmq": "cd docker && docker stop rabbitmq-3.8.3 && cd ..",
-    "build:microservices": "nest build api; nest build user; nest build cart; nest build logs",
+    "build:microservices": "nest build api; nest build cart; nest build logs",
     "build:all": "npm run build:microservices",
     "lint:format": "eslint '{lib,microservices,config,api}/**/**/**/**/*.ts' --fix; prettier --write \"lib/**/**/**/**/*.ts\" \"api/**/**/**/*.ts\" \"config/**/**/**/*.ts\" \"microservices/**/**/**/**/*.ts\"",
     "start:api": "nest start api --watch",

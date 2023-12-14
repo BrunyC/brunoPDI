@@ -8,13 +8,6 @@ module.exports = {
 			}
 		},
 		{
-			name: 'user',
-			script: 'dist/microservices/user/main.js',
-			env: {
-				TZ: 'America/Sao_Paulo'
-			}
-		},
-		{
 			name: 'cart',
 			script: 'dist/microservices/cart/main.js',
 			env: {
