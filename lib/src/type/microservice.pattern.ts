@@ -1,3 +1,3 @@
-import { CartPattern, LogPattern, UserPattern } from '@lib/enum/index';
+import { CartPattern, UserPattern } from '@lib/enum/index';
 
-export type MicroservicePattern = UserPattern | CartPattern | LogPattern;
+export type MicroservicePattern = UserPattern | CartPattern;

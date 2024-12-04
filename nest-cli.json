@@ -34,15 +34,6 @@
 			"compilerOptions": {
 				"tsConfigPath": "microservices/cart/tsconfig.app.json"
 			}
-		},
-		"logs": {
-			"type": "application",
-			"root": "microservices/logs",
-			"entryFile": "main",
-			"sourceRoot": "microservices/logs/src",
-			"compilerOptions": {
-				"tsConfigPath": "microservices/logs/tsconfig.app.json"
-			}
 		}
 	}	
 }

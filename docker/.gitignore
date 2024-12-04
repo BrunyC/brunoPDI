@@ -1,3 +1,2 @@
 services/mongodb/*
 services/rabbitmq/*
-services/elasticsearch/*

@@ -6,7 +6,6 @@ import { Repository } from 'typeorm';
 import { Cart } from './entity';
 import { ItemDto } from 'lib/src/dto/microservices/cart';
 import { MicroserviceProxy } from '@config/index';
-import { LogPattern, Microservice } from '@lib/enum/index';
 
 @Injectable()
 export class CartService {
@@ -37,7 +36,7 @@ export class CartService {
 			.then(() => {
 				Logger.log('Cart successfully created', 'CreateCart');
 
-				return { data: { statusCode: HttpStatus.CREATED, message: 'Cart inserido com sucesso.' } };
+				return { data: { statusCode: HttpStatus.CREATED, message: 'Produto inserido com sucesso.' } };
 			})
 			.catch((error) => {
 				throw new RpcException(ExceptionObjectDto.generate(HttpStatus.BAD_REQUEST, error.message));
@@ -47,12 +46,6 @@ export class CartService {
 	async addItemToCart(userId: string, itemDto: ItemDto): Promise<Cart> {
 		const { productId, quantity, price } = itemDto;
 		const subTotalPrice = quantity * price;
-
-		await this.publish.event(Microservice.LOG, LogPattern.ADD_LOG, {
-			message: 'Item adicionado ao carrinho.',
-			user: '123456',
-			content: 'cart'
-		});
 
 		let { data } = await this.getCart(userId);
 
@@ -101,20 +94,9 @@ export class CartService {
 
 			return data.save();
 		}
-
-		await this.publish.event(Microservice.LOG, LogPattern.ADD_LOG, {
-			message: 'Item excluido com sucesso.',
-			user: userId,
-			content: 'cart'
-		});
 	}
 
 	async deleteCart(userId: string): Promise<any> {
-		await this.publish.event(Microservice.LOG, LogPattern.ADD_LOG, {
-			message: 'Carrinho excluido com sucesso.',
-			user: userId,
-			content: 'cart'
-		});
 		return this.cartRepository.delete({ userId });
 	}
 }

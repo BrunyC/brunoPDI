@@ -13,13 +13,6 @@ module.exports = {
 			env: {
 				TZ: 'America/Sao_Paulo'
 			}
-		},
-		{
-			name: 'logs',
-			script: 'dist/microservices/logs/main.js',
-			env: {
-				TZ: 'America/Sao_Paulo'
-			}
 		}
 	]
 };

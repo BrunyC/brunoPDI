@@ -10,8 +10,7 @@ export class MicroserviceProxy {
 
 	constructor(
 		@Inject(Microservice.USER) private readonly microserviceUser: ClientProxy,
-		@Inject(Microservice.CART) private readonly microserviceCart: ClientProxy,
-		@Inject(Microservice.LOG) private readonly microserviceLog: ClientProxy
+		@Inject(Microservice.CART) private readonly microserviceCart: ClientProxy
 	) {}
 
 	public async message(microserviceName: MicroserviceType, pattern: MicroservicePattern, message: any | any[]): Promise<any> {
@@ -30,7 +29,6 @@ export class MicroserviceProxy {
 		const microservice = {
 			[Microservice.USER]: () => this.microserviceUser,
 			[Microservice.CART]: () => this.microserviceCart,
-			[Microservice.LOG]: () => this.microserviceLog
 		};
 
 		return microservice[name]();

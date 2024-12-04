@@ -22,7 +22,8 @@ export class MongoDBConfig {
 	public setVariables() {
 		this.host = this.envVariables.get('MONGODB_HOST');
 		this.port = this.envVariables.get('MONGODB_PORT');
-		this.database = this.envVariables.get('MONGODB_DATABASE');
+		this.database = this.envVariables.get('MONGODB_DATABASE') || 'cart';
+
 		this.url = `${this.scheme}://${this.host}:${this.port}/${this.database}`;
 	}
 

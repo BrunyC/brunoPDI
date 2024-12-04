@@ -3,7 +3,5 @@ export enum Microservice {
 
 	USER = 'user',
 
-	CART = 'cart',
-
-	LOG = 'logs'
+	CART = 'cart'
 }

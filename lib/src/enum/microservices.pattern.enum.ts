@@ -19,9 +19,3 @@ export enum CartPattern {
 
 	REMOVE_CART = 'cart.removeCart'
 }
-
-export enum LogPattern {
-	GET_LOG = 'log.getLog',
-
-	ADD_LOG = 'log.addLog'
-}

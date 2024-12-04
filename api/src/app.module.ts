@@ -6,7 +6,6 @@ import { TypeOrmConfig, RabbitMQModule } from '@config/index';
 import { CartModule } from './routes/cart/cart.module';
 import { UsersModule } from './routes/user/user.module';
 import { AuthModule } from './auth/auth.module';
-import { LogsModule } from './routes/logs/logs.module';
 
 @Global()
 @Module({
@@ -18,8 +17,7 @@ import { LogsModule } from './routes/logs/logs.module';
 		AuthModule,
 		RabbitMQModule,
 		UsersModule,
-		CartModule,
-		LogsModule
+		CartModule
 	],
 	exports: [RabbitMQModule, ConfigModule.forRoot()],
 	providers: []
