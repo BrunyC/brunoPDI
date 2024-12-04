@@ -44,7 +44,7 @@ export class RabbitMQConfig {
 			},
 			[Microservice.CART]: () => {
 				this.queue = Microservice.CART;
-			},
+			}
 		};
 
 		queueOptions[microservice] && queueOptions[microservice]();

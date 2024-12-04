@@ -28,7 +28,7 @@ export class MicroserviceProxy {
 	public getClientProxyByMicroservice(name: MicroserviceType): ClientProxy {
 		const microservice = {
 			[Microservice.USER]: () => this.microserviceUser,
-			[Microservice.CART]: () => this.microserviceCart,
+			[Microservice.CART]: () => this.microserviceCart
 		};
 
 		return microservice[name]();
