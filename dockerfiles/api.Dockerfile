@@ -21,6 +21,6 @@ COPY --from=builder /usr/src/app/package*.json ./
 COPY --from=builder /usr/src/app/dist ./dist
 COPY --from=builder /usr/src/app/config ./config
 
-EXPOSE 8888
+EXPOSE 3000
 
 CMD [ "npm", "run", "start:docker:api" ]
