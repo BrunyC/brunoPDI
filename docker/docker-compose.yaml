@@ -1,0 +1,88 @@
+version: '3.7'
+
+networks:
+  internal:
+    external: true
+  pdi-network:
+    driver: bridge
+
+services:
+    mongodb:
+        image: mongo:5.0.22
+        volumes:
+            - ./services/mongodb/data:/data/db
+        environment:
+            - MONGO_DB_ROOT_USERNAME=main
+            - MONGO_DB_ROOT_PASSWORD=main
+        ports:
+            - '27017:27017'
+        networks:
+            - pdi-network
+            - internal
+
+    rabbitmq:
+        image: rabbitmq:3.8-management
+        volumes:
+            - ./services/rabbitmq/data:/var/lib/rabbitmq/
+        environment:
+            - RABBITMQ_DEFAULT_USER=main
+            - RABBITMQ_DEFAULT_PASS=main
+        ports:
+            - '5672:5672'
+            - '15672:15672'
+        networks:
+            - pdi-network
+            - internal
+    api:
+        container_name: api
+        build:
+            context: ../
+            dockerfile: ./dockerfiles/api.Dockerfile
+        depends_on:
+            mongodb:
+                condition: service_started
+                restart: true
+            rabbitmq:
+                condition: service_started
+                restart: true
+        environment:
+            PORT: 8888
+            RMQ_HOST: rabbitmq
+            RMQ_USERNAME: main
+            RMQ_PASSWORD: main
+            RMQ_PORT: 5672
+            RMQ_VHOST: ''
+            RMQ_QUEUE_DURABLE_CONFIG: 'true'
+            MONGODB_HOST: mongodb
+            MONGODB_PORT: 27017
+            JWT_TOKEN_EXPIRATION_TIME: 3600
+            JWT_SECRET_PHRASE: a34fe21f235ecb49a05d25eb9b612cc3f57911eda8ddd11f9d09856a26dcb07f
+        ports:
+            - 8888:8888
+        networks:
+            - internal
+
+    cart:
+        container_name: cart
+        build:
+            context: ../
+            dockerfile: ./dockerfiles/cart.Dockerfile
+        depends_on:
+            api:
+                condition: service_started
+                restart: true
+        environment:
+            RMQ_HOST: rabbitmq
+            RMQ_USERNAME: main
+            RMQ_PASSWORD: main
+            RMQ_PORT: 5672
+            RMQ_VHOST: ''
+            RMQ_QUEUE_DURABLE_CONFIG: 'true'
+            MONGODB_HOST: mongodb
+            MONGODB_PORT: 27017
+            JWT_TOKEN_EXPIRATION_TIME: 3600
+            JWT_SECRET_PHRASE: a34fe21f235ecb49a05d25eb9b612cc3f57911eda8ddd11f9d09856a26dcb07f
+        networks:
+            - internal
+
+    
